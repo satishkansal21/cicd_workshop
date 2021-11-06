@@ -1,0 +1,60 @@
+<ng-container *ngIf="currentCat$ | async as currentCat">
+    <div class="w-full flex justify-center">
+        <mat-card>
+            <mat-card-title class="text-center">
+                You get three votes per cat.
+            </mat-card-title>
+            <div class="flex justify-around mr-10">
+                <div>
+                    <div
+                        class="bg-green-100 m-2 p-4 absolute rounded-md font-bold drop-shadow-md"
+                    >Cat Id: {{ currentCat.id }}</div>
+                    <img 
+                        class="mx-auto rounded-xl" 
+                        width="500" 
+                        attr.src="{{currentCat.photoUrl}}" 
+                        alt="Photo of a cat"
+                    />
+                </div>
+                <div class="box-border">
+                    <ng-container *ngIf="currentCat.votingEnds | isVotingOpen; else noVoting">
+                        <div class="m-5 w-full" *ngIf="currentCat.names.length < 8">
+                            <name-that-cat-add-name-dialog
+                                [currentCat]="currentCat"
+                                data-testid="CatDisplay_AddAName"
+                            ></name-that-cat-add-name-dialog>               
+                        </div>
+                        <ng-container *ngIf="user$ | async as user">
+                            <div class="m-5 w-full text-center">You have {{ user.votes[currentCat.id] | remainingVotes }} votes remaining</div>
+                            <div class="m-5 w-full" *ngFor="let name of currentCat.names">
+                                <button 
+                                    attr.data-testid="CatDisplay_Vote_Button_{{ currentCat.id}}"
+                                    [disabled]="user.votes[currentCat.id] > 2"
+                                    class="w-full" 
+                                    mat-raised-button 
+                                    (click)="castVote(currentCat, name.name)"
+                                    matBadge="{{ name.votes }}" 
+                                    matBadgePosition="after" 
+                                    matBadgeColor="accent"
+                                >{{ name.name }}</button>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <ng-template #noVoting>
+                        <h2 class="m-5 w-full text-center">Voting has ended. This cat is named {{ currentCat.names | nameWinner}}!!</h2>
+                        <div class="m-5 w-full" *ngFor="let name of currentCat.names">
+                            <button 
+                                class="w-full" 
+                                mat-raised-button
+                                disabled
+                                matBadge="{{ name.votes }}" 
+                                matBadgePosition="after" 
+                                matBadgeColor="accent"
+                            >{{ name.name }}</button>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</ng-container>
