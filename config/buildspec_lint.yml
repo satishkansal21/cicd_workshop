@@ -7,13 +7,9 @@ phases:
 
   build:
     commands:
-      - echo Building project...
-      - ng build --prod
+      - echo Linting project...
+      - ng lint
 
   post_build:
     commands:
-      - echo Build completed!
-
-artifacts:
-  files:
-    - dist/**/*
+      - echo Linting completed!
