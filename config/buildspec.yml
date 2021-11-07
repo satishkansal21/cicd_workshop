@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - npm ci
       - npm install -g @angular/cli
 
   build:
@@ -12,7 +13,6 @@ phases:
   post_build:
     commands:
       - echo Build completed!
-      - ls
 
 artifacts:
   files:
