@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1455121629903323610" datatype="html">
+        <source>Einen Namen hinzufügen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/add-a-name-dialog/add-a-name-dialog.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1973876268101605064" datatype="html">
+        <source>Wie würdest du diese Katze nennen?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/add-a-name-dialog/cat-name-dialog.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/add-a-name-dialog/cat-name-dialog.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4140215833955644287" datatype="html">
+        <source>Egal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/add-a-name-dialog/cat-name-dialog.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Senden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/add-a-name-dialog/cat-name-dialog.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4427548935566276746" datatype="html">
+        <source> Du bekommst drei Stimmen pro Katze </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/cat-display.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7696187866930315320" datatype="html">
+        <source>Katzen-ID: <x id="INTERPOLATION" equiv-text="{{ currentCat.id }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/cat-display.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8422742627054089040" datatype="html">
+        <source> Sie haben <x id="ICU" equiv-text="{ user.votes[currentCat.id], plural, 
+                                    =2 { {{ user.votes[currentCat.id] | remainingVotes }} vote } 
+                                    other { {{ user.votes[currentCat.id] | remainingVotes }} votes }}"/> verblieben </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/cat-display.component.html</context>
+          <context context-type="linenumber">30,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1239405916437840826" datatype="html">
+        <source>{VAR_PLURAL, plural, =2 {<x id="INTERPOLATION"/> Abstimmung } other {<x id="INTERPOLATION"/> Stimmen }}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/cat-display.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6883782303985190403" datatype="html">
+        <source>Wahl ist beendet. Diese Katze heißt <x id="INTERPOLATION" equiv-text="{{ currentCat.names | nameWinner}}"/>!! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/cat-display/cat-display.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2028753213172926182" datatype="html">
+        <source>Nenne Diese Katze</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6113690216833034753" datatype="html">
+        <source>BENUTZER SCHALTEN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6065277714705780643" datatype="html">
+        <source>HOL DIR EINE ANDERE KATZE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header/header.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7781453748436684481" datatype="html">
+        <source>Benutzername Eingeben</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4166166242155319722" datatype="html">
+        <source> Einloggen </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

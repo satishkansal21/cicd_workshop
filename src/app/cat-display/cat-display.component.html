@@ -1,13 +1,14 @@
 <ng-container *ngIf="currentCat$ | async as currentCat">
     <div class="w-full flex justify-center">
         <mat-card>
-            <mat-card-title class="text-center">
+            <mat-card-title class="text-center" i18n>
                 You get three votes per cat.
             </mat-card-title>
             <div class="flex justify-around mr-10">
                 <div>
                     <div
                         class="bg-green-100 m-2 p-4 absolute rounded-md font-bold drop-shadow-md"
+                        i18n
                     >Cat Id: {{ currentCat.id }}</div>
                     <img 
                         class="mx-auto rounded-xl" 
@@ -25,7 +26,11 @@
                             ></name-that-cat-add-name-dialog>               
                         </div>
                         <ng-container *ngIf="user$ | async as user">
-                            <div class="m-5 w-full text-center">You have {{ user.votes[currentCat.id] | remainingVotes }} votes remaining</div>
+                            <div class="m-5 w-full text-center" i18n>
+                                You  have { user.votes[currentCat.id], plural, 
+                                    =2 { {{ user.votes[currentCat.id] | remainingVotes }} vote } 
+                                    other { {{ user.votes[currentCat.id] | remainingVotes }} votes }} remaining
+                            </div>
                             <div class="m-5 w-full" *ngFor="let name of currentCat.names">
                                 <button 
                                     attr.data-testid="CatDisplay_Vote_Button_{{ currentCat.id}}"
@@ -41,7 +46,11 @@
                         </ng-container>
                     </ng-container>
                     <ng-template #noVoting>
-                        <h2 class="m-5 w-full text-center">Voting has ended. This cat is named {{ currentCat.names | nameWinner}}!!</h2>
+                        <h2 
+                            class="m-5 w-full text-center"
+                            i18n
+                        >Voting has ended. This cat is named {{ currentCat.names | nameWinner}}!!
+                        </h2>
                         <div class="m-5 w-full" *ngFor="let name of currentCat.names">
                             <button 
                                 class="w-full" 
