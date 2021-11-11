@@ -1,7 +1,7 @@
 <div class="w-full flex justify-center">
     <mat-card>
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label i18n>Enter Username</mat-label>
+            <mat-label>Enter Username</mat-label>
             <input #username matInput value="">
         </mat-form-field>
         <div class="mx-auto" 
@@ -11,7 +11,6 @@
                 mat-raised-button
                 color="primary"
                 (click)="logIn(username.value)"
-                i18n
             >
                 Log In
             </button>

@@ -1,7 +1,7 @@
 <div mat-dialog-content class="w-full">
-  <p i18n>What would you name this cat?</p>
+  <p>What would you name this cat?</p>
   <mat-form-field appearance="fill">
-    <mat-label class="w-full" i18n>Name</mat-label>
+    <mat-label class="w-full">Name</mat-label>
     <input 
       data-testid="CatNameDialog_Input" 
       class="w-full" 
@@ -15,7 +15,6 @@
     data-testid="CatNameDialog_Cancel_Button"
     mat-raised-button 
     (click)="onNoClick()"
-    i18n
   >Never Mind</button>
   <button 
     data-testid="CatNameDialog_Submit_Button"
@@ -23,6 +22,5 @@
     color="primary" 
     [mat-dialog-close]="data.name" 
     cdkFocusInitial
-    i18n
   >Submit</button>
 </div>
