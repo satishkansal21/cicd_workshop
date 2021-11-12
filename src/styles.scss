@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+html, body { height: 100%; }
+body { 
+    width: 100%;
+    margin: auto; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
