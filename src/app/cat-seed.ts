@@ -78,11 +78,6 @@ export const CATS: Cat[] = [
         names: []
     },
     {
-        id: "9b98d5be-11dc-49a5-b864-4c0620741585",
-        votingEnds: 16373016000000,
-        names: []
-    },
-    {
         id: "f66f19dd-a6d3-4094-b9ed-7da6b3d67f9f",
         votingEnds: 16373016000000,
         names: []
@@ -177,18 +172,6 @@ export const NAMES: NameWithVote[] =
         catId: "f66f19dd-a6d3-4094-b9ed-7da6b3d67f9f",
         name: "Stuart",
         votes: 5
-    },
-    {
-        id: "e3314697-aa5a-4cec-979c-b0796414d2c9",
-        catId: "9b98d5be-11dc-49a5-b864-4c0620741585",
-        name: "Bunnymuffins",
-        votes: 1
-    },
-    {
-        id: "f968d928-40a3-4c4a-9335-45906a401815",
-        catId: "9b98d5be-11dc-49a5-b864-4c0620741585",
-        name: "Flounder",
-        votes: 0
     },
     {
         id: "3778d4c7-d178-4ea2-852a-fd1d85026c33",
