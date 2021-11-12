@@ -6,11 +6,6 @@ import { Cat } from '../models/cat';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 
-interface UserWithVotes {
-  user: User;
-  remainingVotesForCatId: number;
-}
-
 @Component({
   selector: 'name-that-cat-display',
   templateUrl: './cat-display.component.html',
@@ -18,9 +13,7 @@ interface UserWithVotes {
 })
 export class CatDisplayComponent implements OnInit {
   readonly currentCat$: Observable<Cat> = this.catService.getCurrentCat();
-  readonly user$: Observable<User | undefined> = this.userService.getCurrentUser().pipe(
-
-  );
+  readonly user$: Observable<User | undefined> = this.userService.getCurrentUser();
 
   constructor(
     private readonly userService: UserService,
