@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { CatService } from '../cat.service';
@@ -12,6 +12,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./cat-display.component.scss']
 })
 export class CatDisplayComponent implements OnInit {
+  @Input() catId: string = '';
   readonly currentCat$: Observable<Cat> = this.catService.getCurrentCat();
   readonly user$: Observable<User | undefined> = this.userService.getCurrentUser();
 
@@ -21,7 +22,7 @@ export class CatDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.catService.getAnotherCat().pipe(
+    this.catService.getAnotherCat(this.catId).pipe(
       take(1)
     ).subscribe();
   }

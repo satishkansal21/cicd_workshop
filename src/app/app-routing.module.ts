@@ -5,6 +5,7 @@ import { CreateCatComponent } from './create-cat/create-cat.component';
 
 const routes: Routes = [
   { path: 'cats', component: CoreComponent },
+  { path: 'cats/:id', component: CoreComponent},
   { path: 'create', component: CreateCatComponent },
   { path: '', component: CoreComponent },
   { path: '**', component: CoreComponent }

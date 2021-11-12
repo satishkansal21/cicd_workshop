@@ -42,9 +42,13 @@ export class CatService {
     this.currentCat.next(currentCat);
   }
 
-  getAnotherCat(): Observable<Cat> {
+  getAnotherCat(id: string = ''): Observable<Cat> {
     return this.allCats.pipe(
       map((allCats) => {
+        if (id) {
+          return allCats.find((cat) => cat.id === id) || allCats[0];
+        }
+        
         const total = allCats.length;
 
         const randomIndex = this.getRandomIntInclusive(1, total) - 1;
