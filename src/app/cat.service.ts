@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, of, ReplaySubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { CATS, NAMES } from './cat-seed';
 import { Cat } from './models/cat';
@@ -51,6 +51,11 @@ export class CatService {
       tap((cat) => this.currentCat.next(cat))
     )
   };
+
+  addACat(image: File): Observable<unknown> {
+    console.log('In Add A Cat', image);
+    return of(image);
+  }
 
   private getRandomIntInclusive(min: number, max: number): number {
     const minCeil = Math.ceil(min);

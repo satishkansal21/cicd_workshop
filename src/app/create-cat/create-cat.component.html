@@ -1,0 +1,18 @@
+<div class="w-full flex justify-center">
+    <mat-card>
+        <mat-card-title class="text-center bg-yellow-300 p-5">
+            Select a photo of the cat you would like to name.
+        </mat-card-title>
+
+        <div class="text-center m-10">
+            <input type="file" class="file-input" (change)="onFileSelected($event.target)" #fileUpload>
+        </div>
+        <mat-card-footer class="bg-gray-50 text-center p-5">
+            <button 
+                mat-raised-button 
+                color="warn"
+                (click)="addThatCat(fileName)"
+            >Add That Cat</button>
+        </mat-card-footer>
+    </mat-card>
+</div>
