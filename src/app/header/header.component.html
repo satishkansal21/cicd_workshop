@@ -1,7 +1,7 @@
 <div class="h-auto text-center bg-indigo-300 rounded-3xl m-10 p-5">
     <div class="header-title align-text-bottom">Name That Cat</div>
-    <div class="flex justify-around w-full my-2">
-        <ng-content></ng-content>
+    <div class="flex justify-around w-full my-2" *ngIf="user$ | async">
+        <button mat-raised-button color="warn" (click)="switchUser()">SWITCH USERS</button>
         <button mat-raised-button color="primary" (click)="nextCat()">GET ANOTHER CAT</button>
     </div>
 </div>
