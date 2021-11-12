@@ -1,8 +1,10 @@
+import { UserVotes } from "./user-votes";
+
 export class User {
     userName: string = '';
-    votes: Record<string, number> = {};
+    userVotes: UserVotes[] = [];
     constructor(userName: string) {
         this.userName = userName;
-        this.votes = {};
+        this.userVotes = [];
     }
 }

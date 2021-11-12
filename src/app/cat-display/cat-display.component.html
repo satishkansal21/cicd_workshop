@@ -22,19 +22,26 @@
                             ></name-that-cat-add-name-dialog>               
                         </div>
                         <ng-container *ngIf="user$ | async as user">
-                            <div class="m-5 w-full text-center">You have {{ user.votes[currentCat.id] | remainingVotes }} votes remaining</div>
-                            <div class="m-5 w-full" *ngFor="let name of currentCat.names">
-                                <button 
-                                    attr.data-testid="CatDisplay_Vote_Button_{{ currentCat.id}}"
-                                    [disabled]="user.votes[currentCat.id] > 2"
-                                    class="w-full" 
-                                    mat-raised-button 
-                                    (click)="castVote(currentCat, name.name)"
-                                    matBadge="{{ name.votes }}" 
-                                    matBadgePosition="after" 
-                                    matBadgeColor="accent"
-                                >{{ name.name }}</button>
-                            </div>
+                            <ng-container 
+                                *ngTemplateOutlet="voting;
+                                context: {remainingVotes: user.userVotes | remainingVotes: currentCat.id}"
+                            >
+                            </ng-container>
+                            <ng-template #voting let-remainingVotes="remainingVotes">
+                                <div class="m-5 w-full text-center">You have {{ remainingVotes }} votes remaining</div>
+                                <div class="m-5 w-full" *ngFor="let name of currentCat.names">
+                                    <button 
+                                        attr.data-testid="CatDisplay_Vote_Button_{{ currentCat.id}}"
+                                        [disabled]="remainingVotes <= 0"
+                                        class="w-full" 
+                                        mat-raised-button 
+                                        (click)="castVote(currentCat, name.name)"
+                                        matBadge="{{ name.votes }}" 
+                                        matBadgePosition="after" 
+                                        matBadgeColor="accent"
+                                    >{{ name.name }}</button>
+                                </div>
+                            </ng-template>
                         </ng-container>
                     </ng-container>
                     <ng-template #noVoting>

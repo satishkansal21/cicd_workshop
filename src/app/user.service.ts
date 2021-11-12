@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './models/user';
+import { UserVotes } from './models/user-votes';
 
 @Injectable({
   providedIn: 'root'
@@ -26,18 +27,27 @@ export class UserService {
     const current = this.currentUser.value;
 
     if(current) {
-      const updatedUser = {
-        ...current,
-        votes: {
-          ...current.votes,
-          [catId]: current!.votes[catId] ? current!.votes[catId] + 1 : 1
-        }
-      }
+      const currentCatVote = current.userVotes?.find((userVote) => userVote.catId === catId);
+      const notCurrentCatVotes = current.userVotes?.filter((userVote) => userVote.catId !== catId);
 
-      this.currentUser.next(updatedUser);
+      const updatedCurrentCatVote = currentCatVote ? 
+        {
+          ...currentCatVote,
+          votes: currentCatVote.votes + 1
+        } :
+        new UserVotes(current.userName, catId, 1);
+      
+      const updatedCatVotes = [
+          ...notCurrentCatVotes,
+          updatedCurrentCatVote
+        ];
+
+      this.currentUser.next({
+        ...current,
+        userVotes: [...updatedCatVotes]
+      });
     }
   }
-  
 }
 
 
