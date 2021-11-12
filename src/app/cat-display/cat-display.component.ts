@@ -1,24 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { CatService } from '../cat.service';
 import { Cat } from '../models/cat';
-import { NameWithVote } from '../models/name-with-vote';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-
-class PotentialName {
-  name: string = '';
-  votes: number = 0;
-  alreadyVoted: boolean = false;
-  constructor(name: string) {
-    return {
-      name,
-      votes: 0,
-      alreadyVoted: false
-    }
-  }
-}
 
 @Component({
   selector: 'name-that-cat-display',
@@ -26,7 +12,7 @@ class PotentialName {
   styleUrls: ['./cat-display.component.scss']
 })
 export class CatDisplayComponent implements OnInit {
-  readonly currentCat$: Observable<Cat> = this.catService.getCurrentCat().pipe(tap(console.log));
+  readonly currentCat$: Observable<Cat> = this.catService.getCurrentCat();
   readonly user$: Observable<User | undefined> = this.userService.getCurrentUser();
 
   constructor(
