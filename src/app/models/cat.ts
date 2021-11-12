@@ -1,17 +1,13 @@
+import { NameWithVote } from "./name-with-vote";
+import {v4 as uuid} from 'uuid';
+
 export class Cat {
     id: string = '';
-    photoUrl: string = '';
     names: NameWithVote[] = [];
     votingEnds: number = (Date.now() + (1000 * 60 * 60 * 24 * 5));
-}
-
-export class NameWithVote {
-    id: string = '';
-    name: string = '';
-    votes: number = 0;
-    catId: string = '';
-    constructor (name: string) {
-        this.name =  name;
-        this.votes = 0;
+    constructor() {
+        this.id = uuid();
+        this.names = [];
+        this.votingEnds = (Date.now() + (1000 * 60 * 60 * 24 * 5));
     }
 }

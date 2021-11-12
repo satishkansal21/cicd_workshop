@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './models/user';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class UserService {
     this.currentUser.next(undefined);
   }
 
-  updateUserVotes(catId: number) {
+  updateUserVotes(catId: string) {
     const current = this.currentUser.value;
 
     if(current) {

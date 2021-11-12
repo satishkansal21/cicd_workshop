@@ -41,5 +41,11 @@
         }
       }
     }
+  },
+  "storage": {
+    "CatPhotoStorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

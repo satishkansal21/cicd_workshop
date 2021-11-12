@@ -1,7 +1,8 @@
 import {Component, Inject, Input} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CatService } from '../../cat.service';
-import { Cat, NameWithVote } from '../../models/cat';
+import { Cat } from '../../models/cat';
+import { NameWithVote } from 'src/app/models/name-with-vote';
 
 export interface DialogData {
   cat: Cat;
@@ -34,7 +35,7 @@ export class AddANameDialogComponent {
           ...this.currentCat,
           names: [
             ...this.currentCat.names,
-            new NameWithVote(result)
+            new NameWithVote(result, this.currentCat.id)
           ]
         };
   

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { NameWithVote } from 'src/app/models/cat';
+import { NameWithVote } from 'src/app/models/name-with-vote';
 
 @Pipe({
   name: 'nameWinner'

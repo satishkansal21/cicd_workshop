@@ -1,6 +1,5 @@
 type Cat @model {
   id: ID!
-  photoUrl: String!
   votingEnds: Int!
   names: [NameWithVotes] @connection(keyName: "byCatId", fields: ["id"])
 }
