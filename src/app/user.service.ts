@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { ApplicationRef, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import Auth from '@aws-amplify/auth';
+import { Hub } from '@aws-amplify/core';
 import { User } from './models/user';
 
 export interface CognitoAuthUser {
@@ -13,6 +15,26 @@ export interface CognitoAuthUser {
 })
 export class UserService {
   currentUser: BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);
+
+  constructor(
+    private applicationRef: ApplicationRef
+  ) {
+    Auth.currentAuthenticatedUser().then(
+      (user: CognitoAuthUser) => this.setCurrentUser(user.username),
+      _err => this.currentUser.next(undefined)
+    );
+
+    Hub.listen('auth', ({ payload: { event, data } }) => {
+      const { username } = data;
+      if (event === 'signIn') {
+        this.currentUser.next(new User(username));
+        // manually trigger change detection on sign in
+        this.applicationRef.tick();
+      } else {
+        this.currentUser.next(undefined);
+      }
+    });
+  }
 
   getCurrentUser(): Observable<any>{
     return this.currentUser.asObservable();
