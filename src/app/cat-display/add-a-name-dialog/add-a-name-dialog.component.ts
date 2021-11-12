@@ -31,15 +31,16 @@ export class AddANameDialogComponent {
 
     dialogRef.afterClosed().subscribe((result: string) => {
       if(result) {
+        const addedName = new NameWithVote(result, this.currentCat.id);
         const updatedCat = {
           ...this.currentCat,
           names: [
             ...this.currentCat.names,
-            new NameWithVote(result, this.currentCat.id)
+            addedName
           ]
         };
   
-        this.catService.updateCurrentCat(updatedCat);
+        this.catService.updateNames(addedName, updatedCat);
       }
     });
   }

@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, of, ReplaySubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { CATS, NAMES } from './cat-seed';
 import { Cat } from './models/cat';
+import { NameWithVote } from './models/name-with-vote';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,19 @@ import { Cat } from './models/cat';
 export class CatService {
   private readonly currentCat: ReplaySubject<Cat> = new ReplaySubject<Cat>(1);
   private readonly allCats: BehaviorSubject<Cat[]> = new BehaviorSubject<Cat[]>(CATS);
-  private readonly names = NAMES;
+  private readonly allNames: BehaviorSubject<NameWithVote[]> = new BehaviorSubject<NameWithVote[]>(NAMES);
   constructor() { }
 
   getCurrentCat(): Observable<Cat> {
     return this.currentCat.asObservable();
+  }
+
+  updateNames(nameWithVote: NameWithVote, updatedCat: Cat) {
+    this.allNames.next([
+      ...this.allNames.value,
+      nameWithVote
+    ]);
+    this.updateCurrentCat(updatedCat)
   }
 
   updateCurrentCat(currentCat: Cat) {
@@ -45,7 +54,7 @@ export class CatService {
       map((cat) => {
         return {
           ...cat,
-          names: this.names.filter((name) => name.catId === cat.id)
+          names: this.allNames.value.filter((name) => name.catId === cat.id)
         }
       }),
       tap((cat) => this.currentCat.next(cat))
@@ -53,7 +62,6 @@ export class CatService {
   };
 
   addACat(image: File): Observable<unknown> {
-    console.log('In Add A Cat', image);
     return of(image);
   }
 
