@@ -1,0 +1,121 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateCat {
+  onCreateCat {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCat {
+  onUpdateCat {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCat {
+  onDeleteCat {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateNameWithVotes {
+  onCreateNameWithVotes {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateNameWithVotes {
+  onUpdateNameWithVotes {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteNameWithVotes {
+  onDeleteNameWithVotes {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUserVote {
+  onCreateUserVote {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUserVote {
+  onUpdateUserVote {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUserVote {
+  onDeleteUserVote {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,148 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateCat(
+  $input: CreateCatInput!
+  $condition: ModelCatConditionInput
+) {
+  createCat(input: $input, condition: $condition) {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateCat(
+  $input: UpdateCatInput!
+  $condition: ModelCatConditionInput
+) {
+  updateCat(input: $input, condition: $condition) {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteCat(
+  $input: DeleteCatInput!
+  $condition: ModelCatConditionInput
+) {
+  deleteCat(input: $input, condition: $condition) {
+    id
+    photoUrl
+    votingEnds
+    names {
+      items {
+        id
+        name
+        votes
+        catId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateNameWithVotes(
+  $input: CreateNameWithVotesInput!
+  $condition: ModelNameWithVotesConditionInput
+) {
+  createNameWithVotes(input: $input, condition: $condition) {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateNameWithVotes(
+  $input: UpdateNameWithVotesInput!
+  $condition: ModelNameWithVotesConditionInput
+) {
+  updateNameWithVotes(input: $input, condition: $condition) {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteNameWithVotes(
+  $input: DeleteNameWithVotesInput!
+  $condition: ModelNameWithVotesConditionInput
+) {
+  deleteNameWithVotes(input: $input, condition: $condition) {
+    id
+    name
+    votes
+    catId
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUserVote(
+  $input: CreateUserVoteInput!
+  $condition: ModelUserVoteConditionInput
+) {
+  createUserVote(input: $input, condition: $condition) {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUserVote(
+  $input: UpdateUserVoteInput!
+  $condition: ModelUserVoteConditionInput
+) {
+  updateUserVote(input: $input, condition: $condition) {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUserVote(
+  $input: DeleteUserVoteInput!
+  $condition: ModelUserVoteConditionInput
+) {
+  deleteUserVote(input: $input, condition: $condition) {
+    id
+    username
+    catId
+    votesByCat
+    createdAt
+    updatedAt
+  }
+}

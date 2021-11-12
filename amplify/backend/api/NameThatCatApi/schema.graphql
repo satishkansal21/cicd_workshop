@@ -1,0 +1,20 @@
+type Cat @model {
+  id: ID!
+  photoUrl: String!
+  votingEnds: Int!
+  names: [NameWithVotes] @connection(keyName: "byCatId", fields: ["id"])
+}
+
+type NameWithVotes @model @key(name: "byCatId", fields: ["catId"]) {
+  id: ID!
+  name: String!
+  votes: Int!
+  catId: ID!
+}
+
+type UserVote @model {
+  id: ID!
+  username: String!
+  catId: ID!
+  votesByCat: Int!
+}
