@@ -6,19 +6,6 @@ import { Cat } from '../models/cat';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 
-class PotentialName {
-  name: string = '';
-  votes: number = 0;
-  alreadyVoted: boolean = false;
-  constructor(name: string) {
-    return {
-      name,
-      votes: 0,
-      alreadyVoted: false
-    }
-  }
-}
-
 @Component({
   selector: 'name-that-cat-display',
   templateUrl: './cat-display.component.html',
