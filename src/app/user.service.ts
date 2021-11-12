@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { User } from './models/user';
+import { Auth } from 'aws-amplify';
+import { map } from 'rxjs/operators';
+
+interface CognitoUser {
+  attributes: unknown,
+  id: string,
+  username: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   currentUser: BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);
+  auth = Auth;
 
-  getCurrentUser(): Observable<User | undefined>{
-    return this.currentUser.asObservable();
-  }
-
-  setCurrentUser(userName: string) {
-    const user = new User(userName);
-
-    this.currentUser.next(user);
-  }
-
-  clearCurrentUser() {
-    this.currentUser.next(undefined);
+  getCurrentUser(): Observable<any>{
+    console.log(this.auth);
+    return from(Auth.currentUserInfo()).pipe(map((user: CognitoUser) => new User(user.username)));
   }
 
   updateUserVotes(catId: string) {

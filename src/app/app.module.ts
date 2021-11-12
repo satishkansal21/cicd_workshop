@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { CatDisplayModule } from './cat-display/cat-display.module';
-import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { LoginModule } from './login/login.module';
     NoopAnimationsModule,
     AmplifyUIAngularModule,
     CatDisplayModule,
-    LoginModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,

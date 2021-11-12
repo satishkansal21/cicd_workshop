@@ -20,9 +20,4 @@ export class HeaderComponent {
   nextCat() {
     this.catService.getAnotherCat().subscribe();
   }
-
-  switchUser() {
-    this.userService.clearCurrentUser();
-  }
-
 }
