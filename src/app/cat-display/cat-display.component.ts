@@ -43,7 +43,7 @@ export class CatDisplayComponent implements OnInit {
     const updatedNames = currentCat.names.map((nameWithVote) => {
       if(nameWithVote.name === name) {
         return {
-          name: name,
+          ...nameWithVote,
           votes: nameWithVote.votes + 1
         }
       }

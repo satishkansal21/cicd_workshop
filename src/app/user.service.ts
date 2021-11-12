@@ -22,7 +22,7 @@ export class UserService {
     this.currentUser.next(undefined);
   }
 
-  updateUserVotes(catId: number) {
+  updateUserVotes(catId: string) {
     const current = this.currentUser.value;
 
     if(current) {
