@@ -11,6 +11,13 @@ phases:
       - echo Installing dependencies...
       - npm ci
       - npm install -g @angular/cli
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - echo Linting project...
+      - ng lint
+      - echo Testing project...
+      - npm test
   build:
     commands:
       - echo Building project...
