@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 
 import { CatDisplayModule } from './cat-display/cat-display.module';
 import { LoginModule } from './login/login.module';
@@ -29,6 +30,7 @@ import { APP_BASE_HREF } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    AmplifyUIAngularModule,
     HttpClientModule,
     CatDisplayModule,
     LoginModule,

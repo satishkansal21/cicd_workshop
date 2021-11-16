@@ -1,8 +1,3 @@
-<ng-container *ngIf="user$ | async; else logIn">
-  <div class="m-10">
-    <name-that-cat-display [catId]="id$ | async"></name-that-cat-display>
-  </div>
-</ng-container>
-<ng-template #logIn>
-  <name-that-cat-login></name-that-cat-login>
-</ng-template>
+<div class="m-10">
+  <name-that-cat-display [catId]="id$ | async"></name-that-cat-display>
+</div>

@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Testing project...
+      - npm test
+
+  post_build:
+    commands:
+      - echo Unit testing completed!

@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - echo Linting project...
+        - npm run lint
+        - echo Testing project...
+        - npm test
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist/name-that-cat
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
