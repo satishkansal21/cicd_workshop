@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+  post_build:
+    commands:
+      - echo Dependencies installed!
+artifacts:
+  files:
+    - "**/*"
