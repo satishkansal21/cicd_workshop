@@ -1,0 +1,24 @@
+version: 0.2
+env:
+  variables:
+    BUILD_ENV: prod
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+      - npm install -g @angular/cli
+  build:
+    commands:
+      - echo Building project...
+      - ng build --${BUILD_ENV}
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - dist/**/*
